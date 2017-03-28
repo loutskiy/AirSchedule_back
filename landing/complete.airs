@@ -24,43 +24,10 @@
 						</header>
 						
 						<hr />
-						<h2>Участвовать в Бета-тесте</h2>
-						<form method="post" action="betaForm.php">
-							<div class="field">
-								<input type="text" name="name" id="name" placeholder="Ваше имя" />
-							</div>
-							<div class="field">
-								<input type="email" name="email" id="email" placeholder="Ваш Email" />
-							</div>
-<!--
-							<div class="field">
-								<div class="select-wrapper">
-									<select name="department" id="department">
-										<option value="">Department</option>
-										<option value="sales">Sales</option>
-										<option value="tech">Tech Support</option>
-										<option value="null">/dev/null</option>
-									</select>
-								</div>
-							</div>
-							<div class="field">
-								<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
-							</div>
-							<div class="field">
-								<input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
-							</div>
--->
-							<div class="field">
-								<label>Вы робот?</label>
-								
-								<input type="radio" id="robot_yes" name="robot" value="0" /><label for="robot_yes">Да</label>
-								<input type="radio" id="robot_no" name="robot" value="1" /><label for="robot_no">Нет</label>
-							</div>
-							<ul class="actions">
-								<input type="submit" name="submit" value="Участвовать" class="button">
-<!-- 								<li><a href="#" class="button">Участвовать</a></li> -->
-							</ul>
-						</form>
+						<h2>%RESPONSE%</h2>
+						<ul class="actions">
+							<li><a href="/" class="button">Назад</a></li>
+						</ul>	
 						<hr />
 						
 						<footer>

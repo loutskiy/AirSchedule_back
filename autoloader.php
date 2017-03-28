@@ -30,9 +30,10 @@
 	require_once HOMEDIR . MODULE . 'email.class.php';
 	require_once HOMEDIR . MODULE . 'user.class.php';
 	require_once HOMEDIR . MODULE . 'token.class.php';
+	require_once HOMEDIR . MODULE . 'betaTesters.class.php';
 	require_once HOMEDIR . HELPER . 'AirportsParser.php';
 	require_once HOMEDIR . HELPER . 'AirlinesParser.php';
-	
+		
 	$db = new MySQL($dbConfig);
 	
 	$mailSMTP = new Email($emailConfig['email'], $emailConfig['pass'], $emailConfig['ssl'], $emailConfig['title'], $emailConfig['port']);
