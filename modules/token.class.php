@@ -38,10 +38,7 @@
 		{
 			global $db;
 			
-			$this->userId = $userId;
-			$this->token = $token;
-			
-			$response = $db->getOne("SELECT id FROM tokens WHERE user_id = ?i AND value = ?s", $this->userId, $this->token);
+			$response = $db->getOne("SELECT id FROM tokens WHERE user_id = ?i AND value = ?s", $userId, $token);
 			if ($response)
 				return TRUE;
 			else

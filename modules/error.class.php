@@ -12,7 +12,8 @@
 			1 => "USER NOT EXIST",
 			2 => "USER NOT ACTIVE",
 			3 => "INCORRECT PASSWORD",
-			4 => "USER ALREADY EXIST"
+			4 => "USER ALREADY EXIST",
+			5 => "INVALID TOKEN"
 		);
 		
 		public function getErrorDescription ($errorCode)

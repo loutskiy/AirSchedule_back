@@ -2,16 +2,16 @@
 	require_once '/home/admin/web/airschedule.ru/public_html/autoloader.php';
 	
 	/**
-	* AirlinesParser class
+	* EquipmentParser class
 	* @Developer: Mikhail Lutsky
 	* @Date: 27 March 2017
 	**/
 	
-	class AirlinesParser
+	class EquipmentParser
 	{
 		public $url;
 		
-		function AirlinesParser($url)
+		function EquipmentParser($url)
 		{
 			$this->url = $url;
 		}
@@ -27,10 +27,10 @@
 		{
 			global $db;
 			$array = json_decode($data, true);
-			$array = $array["airlines"];
+			$array = $array["equipment"];
 			foreach ($array as $value)
 			{
-				$sql = "INSERT INTO `airlines` SET ?u";
+				$sql = "INSERT INTO `equipment` SET ?u";
 				$db->query($sql, $value);
 			}
 		}

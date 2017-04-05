@@ -2,16 +2,16 @@
 	require_once '/home/admin/web/airschedule.ru/public_html/autoloader.php';
 	
 	/**
-	* AirlinesParser class
+	* FlightstatusByAirportParser class
 	* @Developer: Mikhail Lutsky
 	* @Date: 27 March 2017
 	**/
 	
-	class AirlinesParser
+	class FlightstatusByAirportParser
 	{
 		public $url;
 		
-		function AirlinesParser($url)
+		function FlightstatusByAirportParser($url)
 		{
 			$this->url = $url;
 		}
@@ -20,18 +20,20 @@
 		{
 			$url = $this->url;
 			$data = cURL::openUrl($url);
-			self::writeToDataBase ($data);
+			return $data;
 		}
 		
+/*
 		protected function writeToDataBase ($data)
 		{
 			global $db;
 			$array = json_decode($data, true);
-			$array = $array["airlines"];
+			$array = $array["equipment"];
 			foreach ($array as $value)
 			{
-				$sql = "INSERT INTO `airlines` SET ?u";
+				$sql = "INSERT INTO `equipment` SET ?u";
 				$db->query($sql, $value);
 			}
 		}
+*/
 	}
