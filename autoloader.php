@@ -33,12 +33,19 @@
 	require_once HOMEDIR . MODULE . 'user.class.php';
 	require_once HOMEDIR . MODULE . 'token.class.php';
 	require_once HOMEDIR . MODULE . 'betaTesters.class.php';
+	require_once HOMEDIR . MODULE . 'schedule.class.php';
+	require_once HOMEDIR . MODULE . 'airports.class.php';
+	require_once HOMEDIR . MODULE . 'airlines.class.php';
+	require_once HOMEDIR . MODULE . 'error.class.php';
 	require_once HOMEDIR . MODULE . 'cURL.class.php';
 	require_once HOMEDIR . HELPER . 'AirportsParser.php';
 	require_once HOMEDIR . HELPER . 'AirlinesParser.php';
 	require_once HOMEDIR . HELPER . 'EquipmentParser.php';
+	require_once HOMEDIR . HELPER . 'ScheduleParser.php';
 	require_once HOMEDIR . DATABASE . 'database.php';
 		
 	$db = new MySQL($dbConfig);
 	
 	$mailSMTP = new Email($emailConfig['email'], $emailConfig['pass'], $emailConfig['ssl'], $emailConfig['title'], $emailConfig['port']);
+	
+	$Error = new Error;

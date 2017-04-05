@@ -13,8 +13,18 @@
 			2 => "USER NOT ACTIVE",
 			3 => "INCORRECT PASSWORD",
 			4 => "USER ALREADY EXIST",
-			5 => "INVALID TOKEN"
+			5 => "INVALID TOKEN",
+			6 => "FILL ALL FIELDS"
 		);
+		
+		public function getErrorByCode ($errorCode)
+		{
+			$data = array(
+				"code" => $errorCode,
+				"description" => $this->errorCodes[$errorCode]
+			);
+			return $data;
+		}
 		
 		public function getErrorDescription ($errorCode)
 		{

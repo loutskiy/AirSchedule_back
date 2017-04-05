@@ -25,14 +25,6 @@
 		
 		public $error;
 		
-		public $errorCodes = array(
-			0 => "NONE",
-			1 => "USER NOT EXIST",
-			2 => "USER NOT ACTIVE",
-			3 => "INCORRECT PASSWORD",
-			4 => "USER ALREADY EXIST"
-		);
-		
 		public function initWithUserId ($id)
 		{
 			$this->id = $id;

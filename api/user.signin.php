@@ -27,19 +27,12 @@
 			print_r(json_encode($data));
 		} else
 		{
-			$userErrors = $user->errorCodes;
-			$data = array(
-				"errorCode" => $user->error,
-				"errorResponse" =>$userErrors[$user->error]
-			);
+			$data = $Error->getErrorByCode($user->error);
 			print_r(json_encode($data));
 		}
 	} else
 	{
-		$data = array(
-			"errorCode" => 101,
-			"errorResponse" => "Fill all fields"
-		);
+		$data = $Error->getErrorByCode(6);
 		print_r(json_encode($data));
 	}
 		
