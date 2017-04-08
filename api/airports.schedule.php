@@ -20,6 +20,7 @@
 			"status" => "success",
 			"response" => $response
 		);
+		$Error->getErrorByCode(0);
 		print_r(json_encode($data));
 	} else
 	{

@@ -23,13 +23,15 @@
 				"code" => $errorCode,
 				"description" => $this->errorCodes[$errorCode]
 			);
-			// вызов баг-трекера
+			$BugTracker = new BugTracker ($errorCode, $this->errorCodes[$errorCode]);
+			$BugTracker->insertStatistic ();
 			return $data;
 		}
 		
 		public function getErrorDescription ($errorCode)
 		{
-			// вызов баг-трекера
+			$BugTracker = new BugTracker ($errorCode, $this->errorCodes[$errorCode]);
+			$BugTracker->insertStatistic ();
 			return $this->errorCodes[$errorCode];
 		}
 	}
