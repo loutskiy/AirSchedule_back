@@ -23,11 +23,13 @@
 				"code" => $errorCode,
 				"description" => $this->errorCodes[$errorCode]
 			);
+			// вызов баг-трекера
 			return $data;
 		}
 		
 		public function getErrorDescription ($errorCode)
 		{
+			// вызов баг-трекера
 			return $this->errorCodes[$errorCode];
 		}
 	}

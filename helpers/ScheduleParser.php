@@ -39,7 +39,6 @@
 		public function startParsing ()
 		{
 			$url = $this->url . "&page=" . $this->page;
-			print_r($url);
 			$data = cURL::openUrl($url);
 			$this->writeToDataBase ($data);
 		}
@@ -83,15 +82,26 @@
 			global $db;
 			$airlinesId = Airlines::getAirlinesIdByCode($thread->carrier->codes->iata,$thread->carrier->codes->icao);
 			$airlinesId = empty($airlinesId) ? 0 : $airlinesId;
+			$title = explode(" — ", $thread->title);
+			$shortTitle = explode(" — ", $thread->short_title);
+			if ($this->event == "arrival")
+			{
+				$title = $title[0];
+				$shortTitle = $shortTitle[0];
+			} else
+			{
+				$title = $title[1];
+				$shortTitle = $shortTitle[1];
+			}
 			$data = array(
 				"api_platform" => "Yandex.Raspisanie",
 				"airlines_id" => $airlinesId,
 				"transport_type" => $thread->transport_type,
 				"uid" => $thread->uid,
-				"title" => $thread->title,
+				"title" => $title,
 				"vehicle" => $thread->vehicle,
 				"number" => $thread->number,
-				"short_title" => $thread->short_title
+				"short_title" => $shortTitle
 			);
 			$sql = "INSERT INTO `threads` SET ?u";
 			$db->query ($sql, $data);

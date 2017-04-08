@@ -38,6 +38,8 @@
 	require_once HOMEDIR . MODULE . 'airlines.class.php';
 	require_once HOMEDIR . MODULE . 'error.class.php';
 	require_once HOMEDIR . MODULE . 'cURL.class.php';
+	require_once HOMEDIR . MODULE . 'bugTracker.class.php';
+	require_once HOMEDIR . MODULE . 'statistic.class.php';
 	require_once HOMEDIR . HELPER . 'AirportsParser.php';
 	require_once HOMEDIR . HELPER . 'AirlinesParser.php';
 	require_once HOMEDIR . HELPER . 'EquipmentParser.php';

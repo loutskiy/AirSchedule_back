@@ -6,17 +6,17 @@
 	**/
 	class Schedule
 	{
-		private $date;
+		public $date;
 		
-		private $airport;
+		public $airport;
 		
-		private $event;
+		public $event;
 		
 		private $airport_id;
 		
 		private $asId;
 		
-		function Schedule($date, $airport, $event)
+		function Schedule($date = null, $airport = null, $event = null)
 		{
 			$this->date = $date;
 			$this->airport = $airport;
