@@ -25,6 +25,7 @@
 	define('MODULE', 'modules/');
 	define('HELPER', 'helpers/');
 	define('DATABASE', 'database/');
+	define('IMAGES', 'images/');
 	
 	require_once '/configs/bootiniAS.php';
 	require_once HOMEDIR . BIN . 'version.php';
@@ -38,16 +39,57 @@
 	require_once HOMEDIR . MODULE . 'airlines.class.php';
 	require_once HOMEDIR . MODULE . 'error.class.php';
 	require_once HOMEDIR . MODULE . 'cURL.class.php';
+	require_once HOMEDIR . MODULE . 'ip.class.php';
 	require_once HOMEDIR . MODULE . 'bugTracker.class.php';
+	require_once HOMEDIR . MODULE . 'firewall.class.php';
 	require_once HOMEDIR . MODULE . 'statistic.class.php';
+	require_once HOMEDIR . MODULE . 'apns.class.php';
+	require_once HOMEDIR . MODULE . 'url.class.php';
+	require_once HOMEDIR . MODULE . 'templator.class.php';
+	require_once HOMEDIR . MODULE . 'translit.class.php';
+	require_once HOMEDIR . MODULE . 'routes.class.php';
+	require_once HOMEDIR . MODULE . 'copyrightYandex.class.php';
+	require_once HOMEDIR . MODULE . 'cityRoutes.class.php';
+	require_once HOMEDIR . MODULE . 'countries.class.php';
+	require_once HOMEDIR . MODULE . 'cities.class.php';
 	require_once HOMEDIR . HELPER . 'AirportsParser.php';
 	require_once HOMEDIR . HELPER . 'AirlinesParser.php';
 	require_once HOMEDIR . HELPER . 'EquipmentParser.php';
 	require_once HOMEDIR . HELPER . 'ScheduleParser.php';
+	require_once HOMEDIR . HELPER . 'AirlinesImageDaemon.php';
+	require_once HOMEDIR . HELPER . 'RoutesParser.php';
+	require_once HOMEDIR . HELPER . 'CopyrightParser.php';
+	require_once HOMEDIR . HELPER . 'LocationParser.php';
+	require_once HOMEDIR . HELPER . 'CCCodesParser.php';
 	require_once HOMEDIR . DATABASE . 'database.php';
-		
+	
 	$db = new MySQL($dbConfig);
-	
-	$mailSMTP = new Email($emailConfig['email'], $emailConfig['pass'], $emailConfig['ssl'], $emailConfig['title'], $emailConfig['port']);
-	
 	$Error = new Error;
+	$mailSMTP = new Email($emailConfig['email'], $emailConfig['pass'], $emailConfig['ssl'], $emailConfig['title'], $emailConfig['port']);
+	$CopyrightYandex = new CopyrightYandex ();
+	
+
+	/**
+	 * Insert your code down
+	 */
+	
+	$Statistics = new Statistics;
+	$Statistics->insertStatistic();
+	Firewall::checkForBlock ();
+	
+	/**
+	 * Daemons
+	 */
+	 
+	$AirlinesImageDaemon = new AirlinesImageDaemon ( HOMEDIR . IMAGES . 'airlines' );
+	$AirlinesImageDaemon->scanDirectory ();
+	
+/*
+	$LocationParser = new LocationParser ();
+	$LocationParser->startParsing ();
+*/
+
+/*
+	$CCCodesParser = new CCCodesParser ();
+	$CCCodesParser->startParsing ();
+*/

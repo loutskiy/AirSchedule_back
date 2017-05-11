@@ -14,7 +14,8 @@
 			3 => "INCORRECT PASSWORD",
 			4 => "USER ALREADY EXIST",
 			5 => "INVALID TOKEN",
-			6 => "FILL ALL FIELDS"
+			6 => "FILL ALL FIELDS",
+			7 => "YOUR IP WAS BLOCKED"
 		);
 		
 		public function getErrorByCode ($errorCode)

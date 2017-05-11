@@ -4,7 +4,21 @@
 		public static function getAirportIdByIATA ($iata)
 		{
 			global $db;
-			$airport_id = $db->getOne("SELECT id FROM `airports` WHERE `iata` = ?s", $iata);
-			return $airport_id;
+			$airportId = $db->getOne("SELECT id FROM `airports` WHERE `iata` = ?s", $iata);
+			return $airportId;
+		}
+		
+		public static function addCountryId ($airportId, $countryId)
+		{
+			global $db;
+			$sql = "UPDATE `airports` SET `country_id` = ?i WHERE `id` = ?i";
+			$db->query ($sql, $countryId, $airportId);
+		}
+		
+		public static function addCityId ($airportId, $cityId)
+		{
+			global $db;
+			$sql = "UPDATE `airports` SET `city_id` = ?i WHERE `id` = ?i";
+			$db->query ($sql, $cityId, $airportId);
 		}
 	}

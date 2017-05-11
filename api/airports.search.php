@@ -10,9 +10,11 @@
 	$token = $_GET["token"];
 	$count = $_GET["count"];
 	$offset = $_GET["offset"];
+	$queryRu = Translit::translitToEnglish ( $_GET["search"] );
 	$search = '%' . $_GET["search"] . '%';
+	$searchRu = '%' . $queryRu . '%';
 	
-	$response = $db->getAll("SELECT * FROM `airports` WHERE (`active` = 1 AND `iata` != '') AND (`name` LIKE ?s OR `iata` LIKE ?s OR `icao` LIKE ?s) LIMIT ?i, ?i", $search, $search, $search, $offset, $count);
+	$response = $db->getAll("SELECT * FROM `airports` WHERE (`active` = 1 AND `iata` != '') AND (`name` LIKE ?s OR `iata` LIKE ?s OR `icao` LIKE ?s OR `name` LIKE ?s) LIMIT ?i, ?i", $search, $search, $search, $searchRu, $offset, $count);
 	$data = array(
 		"status" => "success",
 		"count" => count($response),

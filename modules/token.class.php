@@ -34,7 +34,7 @@
 			return $this->token;
 		}
 		
-		public function checkTokenForUserId ($userId, $token)
+		public static function checkTokenForUserId ($userId, $token)
 		{
 			global $db;
 			

@@ -18,9 +18,7 @@
 		public $date;
 		
 		public $asId;
-		
-		private $threadId;
-		
+				
 		private $isWrite;
 		
 		function ScheduleParser($airport, $event, $date)
@@ -45,9 +43,7 @@
 		
 		protected function writeToDataBase ($data)
 		{
-			global $db;
 			$array = json_decode($data);
-			$airport_id = Airports::getAirportIdByIATA($this->airport);
 			if (!$this->isWrite)
 				$this->writeAirportSchedule();
 			$schedules = $array->schedule;
@@ -77,14 +73,14 @@
 			$this->isWrite = true;
 		}
 		
-		protected function writeThread ($thread)
+		public function writeThread ($thread, $event = null)
 		{
 			global $db;
 			$airlinesId = Airlines::getAirlinesIdByCode($thread->carrier->codes->iata,$thread->carrier->codes->icao);
 			$airlinesId = empty($airlinesId) ? 0 : $airlinesId;
 			$title = explode(" — ", $thread->title);
 			$shortTitle = explode(" — ", $thread->short_title);
-			if ($this->event == "arrival")
+			if ($event == "arrival")
 			{
 				$title = $title[0];
 				$shortTitle = $shortTitle[0];
@@ -105,17 +101,17 @@
 			);
 			$sql = "INSERT INTO `threads` SET ?u";
 			$db->query ($sql, $data);
-			$this->threadId = $db->insertId();
+			return $db->insertId();
 		}
 		
 		protected function writeSchedule ($schedule)
 		{
 			global $db;
 			$thread = $schedule->thread;
-			$this->writeThread ($thread);
+			$threadId = $this->writeThread ($thread, $this->event);
 			$data = array(
 				"as_id" => $this->asId,
-				"thread_id" => $this->threadId,
+				"thread_id" => $threadId,
 				"except_days" => $schedule->except_days,
 				"arrival" => $schedule->arrival,
 				"days" => $schedule->days,
