@@ -16,7 +16,7 @@
 		
 		private $airport_id_to;
 		
-		private $routeId;
+		protected $routeId;
 		
 		function Routes($date = null, $airport_from = null, $airport_to = null)
 		{
@@ -39,7 +39,7 @@
 			return $routes;
 		}
 		
-		private function getRoutesFromDB ()
+		protected function getRoutesFromDB ()
 		{
 			global $db;
 			$sql = "SELECT * FROM route_threads s LEFT JOIN threads t ON (s.thread_id = t.id) WHERE s.route_id = ?i ORDER BY s.id ASC";
@@ -47,7 +47,7 @@
 			return $response;
 		}
 		
-		private function checkForExistInDB ()
+		protected function checkForExistInDB ()
 		{
 			global $db;
 			$sql = "SELECT `id` FROM `routes` WHERE `date` = ?s AND `id_from_airport` = ?s AND `id_to_airport` = ?s";
@@ -57,7 +57,7 @@
 			return $response;
 		}
 		
-		private function parsingDB ()
+		protected function parsingDB ()
 		{
 			$RoutesParser = new RoutesParser($this->airport_from, $this->airport_to, $this->date);
 			$RoutesParser->startParsing();

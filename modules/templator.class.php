@@ -5,8 +5,12 @@
 		
 		private $data;
 		
+		private $dir;
+		
 		public function init ($page, $data = null)
 		{
+			global $db;
+			$this->dir = $db->getOne ("SELECT value FROM `configs` WHERE field = 'site_dir' ORDER BY id DESC LIMIT 1");
 			$this->page = $page;
 			$this->data = $data;
 		}
@@ -38,7 +42,7 @@
 		public function getTemplate ($name, $templateName = "template")
 		{
 			ob_start();
-		    include (dirname(__FILE__) . "/../web-site/" . $templateName . "/" . $name . ".tpl");
+		    include (dirname(__FILE__) . "/../" . $this->dir . "/" . $templateName . "/" . $name . ".tpl");
 		    $text = ob_get_clean();
 		    return $text;
 		}
