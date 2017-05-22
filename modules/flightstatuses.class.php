@@ -26,7 +26,7 @@
 		
 		private $url;
 		
-		public FlightStatuses($requestedAirport, $flightsType, $requestedYear, $requestedMonth, $requestedDay, $requestedHour, $requestedNumHours)
+		public function __construct($requestedAirport, $flightsType, $requestedYear, $requestedMonth, $requestedDay, $requestedHour, $requestedNumHours)
 		{
 			$this->requestedAirport  = $requestedAirport;
 			$this->flightsType = $flightsType;
@@ -38,13 +38,13 @@
 			$this->url = configureUrl ();
 		}
 		
-		private configureUrl ()
+		private function configureUrl ()
 		{
 			$url = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/" . $this->requestedAirport . "/" . $this->flightsType . "/" . $this->requestedYear . "/" . $this->requestedMonth . "/" . $this->requestedDay . "/" . $this->requestedHour . "/" . $this->requestedNumHours . "?appId=" . kAPPIDFS . "&appKey=" . kAPPKEYFS . "&utc=false&numHours=" . $this->requestedNumHours;
 			return $url;
 		}
 		
-		public getSchedule ()
+		public function getSchedule ()
 		{
 			$CheckRequestForExistInDB = $this->checkRequestForExistInDB ();
 			if ($CheckRequestForExistInDB)
@@ -57,7 +57,7 @@
 			}
 		}
 		
-		public checkRequestForExistInDB ()
+		public function checkRequestForExistInDB ()
 		{
 			global $db;
 			$query = "SELECT id FROM airportStatuses WHERE airport = ?s AND year = ?i AND month = ?i AND day = ?i AND hourOfDay = ?i AND numHours = ?i AND flightsType = ?s";
@@ -65,14 +65,14 @@
 			return $result;
 		}
 		
-		private getScheduleFromDB ()
+		private function getScheduleFromDB ()
 		{
 			global $db;
 			
 		}
 		
-		private parseData ()
+		private function parseData ()
 		{
-			$
+			
 		}
 	}

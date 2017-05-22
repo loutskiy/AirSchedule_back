@@ -21,7 +21,7 @@
 				
 		private $isWrite;
 		
-		function ScheduleParser($airport, $event, $date)
+		function __construct($airport, $event, $date)
 		{
 			$this->page = 1;
 			$this->airport = $airport;
@@ -117,7 +117,7 @@
 				"days" => $schedule->days,
 				"departure" => $schedule->departure,
 				"terminal" => $schedule->terminal,
-				"is_fuzzy" => $schedule->is_fuzzy
+				"is_fuzzy" => empty($schedule->is_fuzzy) ? 0 : $schedule->is_fuzzy
 			);
 			$sql = "INSERT INTO `schedules` SET ?u";
 			$db->query ($sql, $data);

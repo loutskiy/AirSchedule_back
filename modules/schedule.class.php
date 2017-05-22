@@ -16,7 +16,7 @@
 		
 		private $asId;
 		
-		function Schedule($date = null, $airport = null, $event = null)
+		function __construct($date = null, $airport = null, $event = null)
 		{
 			$this->date = $date;
 			$this->airport = $airport;

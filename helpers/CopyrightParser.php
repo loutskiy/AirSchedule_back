@@ -3,7 +3,7 @@
 	{
 		private $url;
 		
-		public function CopyrightParser()
+		public function __construct()
 		{
 			$this->url = "https://api.rasp.yandex.net/v1.0/copyright/?apikey=" . kAPIKEYYANDEXRASP . "&format=json";
 		}

@@ -5,7 +5,7 @@
 	* @Date: 28 March 2017
 	**/
 	
-	class Error
+	class ASError
 	{
 		private $errorCodes = array(
 			0 => "NONE",

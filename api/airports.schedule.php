@@ -3,7 +3,7 @@
 	* Airports get
 	**/
 	
-	require_once '/home/admin/web/airschedule.ru/public_html/autoloader.php';
+	require_once dirname(__DIR__) . '/autoloader.php';
 	header('Content-Type: application/json');
 	
 	$token = $_POST["token"];
@@ -19,10 +19,10 @@
 			"status" => "success",
 			"response" => $response
 		);
-		$Error->getErrorByCode(0);
+		$ASError->getErrorByCode(0);
 		print_r(json_encode($data));
 	} else
 	{
-		$data = $Error->getErrorByCode(6);
+		$data = $ASError->getErrorByCode(6);
 		print_r(json_encode($data));
 	}

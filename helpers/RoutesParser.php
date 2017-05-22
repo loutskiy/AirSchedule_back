@@ -15,7 +15,7 @@
 		
 		public $routeId;
 				
-		public function RoutesParser($airport_from, $airport_to, $date)
+		public function __construct($airport_from, $airport_to, $date)
 		{
 			$this->airport_from = $airport_from;
 			$this->airport_to = $airport_to;

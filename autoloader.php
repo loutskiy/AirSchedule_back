@@ -7,7 +7,7 @@
 	
 	session_start();
 	
-	$isDev = false;
+	$isDev = true;
 	
 	if ($isDev)
 	{
@@ -20,14 +20,14 @@
 	define('kAPPKEYFS', '0d48bd9e704b06c900a6b46fd5e86cd0');
 	define('kAPIKEYYANDEXRASP', 'd3670b62-f4e7-473f-9250-fa92f9466561');
 	define('kPASSHASH', 'lwts');
-	define('HOMEDIR', '/home/admin/web/airschedule.ru/public_html/');
+	define('HOMEDIR', __DIR__ . '/');
 	define('BIN', 'bin/');
 	define('MODULE', 'modules/');
 	define('HELPER', 'helpers/');
 	define('DATABASE', 'database/');
 	define('IMAGES', 'images/');
 	
-	require_once '/configs/bootiniAS.php';
+	require_once 'bin/bootini.php';
 	require_once HOMEDIR . BIN . 'version.php';
 	require_once HOMEDIR . MODULE . 'mysql.class.php';
 	require_once HOMEDIR . MODULE . 'email.class.php';
@@ -61,10 +61,11 @@
 	require_once HOMEDIR . HELPER . 'CopyrightParser.php';
 	require_once HOMEDIR . HELPER . 'LocationParser.php';
 	require_once HOMEDIR . HELPER . 'CCCodesParser.php';
+	require_once HOMEDIR . HELPER . 'FlightstatusByAirportParser.php';
 	require_once HOMEDIR . DATABASE . 'database.php';
 	
 	$db = new MySQL($dbConfig);
-	$Error = new Error;
+	$ASError = new ASError;
 	$mailSMTP = new Email($emailConfig['email'], $emailConfig['pass'], $emailConfig['ssl'], $emailConfig['title'], $emailConfig['port']);
 	$CopyrightYandex = new CopyrightYandex ();
 	

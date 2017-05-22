@@ -1,6 +1,6 @@
 <meta charset="utf8">
 <?php
-	require_once '/home/admin/web/airschedule.ru/public_html/autoloader.php';
+	require_once dirname(__DIR__) . '/autoloader.php';
 
 	$name = $_POST['name'];
 	$email = $_POST['email'];

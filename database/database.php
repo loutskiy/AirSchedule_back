@@ -3,5 +3,5 @@
 	* Inculing helpers variable
 	**/
 	
-	require_once '/home/admin/web/airschedule.ru/public_html/database/flightStatuses.php';
-	require_once '/home/admin/web/airschedule.ru/public_html/database/flightTypes.php';
+	require_once __DIR__ . '/flightStatuses.php';
+	require_once __DIR__ . '/flightTypes.php';

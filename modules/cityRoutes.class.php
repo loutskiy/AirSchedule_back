@@ -9,7 +9,7 @@
 		
 		private $db;
 		
-		function CityRoutes($date, $cityFromId, $cityToId)
+		function __construct($date, $cityFromId, $cityToId)
 		{
 			global $db;
 			$this->date = $date;

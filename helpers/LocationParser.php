@@ -9,7 +9,7 @@
 		
 		private $db;
 		
-		public function LocationParser ()
+		public function __construct ()
 		{
 			global $db;
 			$this->db = &$db;

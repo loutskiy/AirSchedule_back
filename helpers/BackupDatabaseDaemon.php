@@ -1,7 +1,7 @@
 <?php
 	class BackupDatabaseDaemon
 	{
-		public function BackupDatabaseDaemon()
+		public function __construct()
 		{
 			
 		}

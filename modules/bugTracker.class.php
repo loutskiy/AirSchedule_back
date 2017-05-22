@@ -9,7 +9,7 @@
 		
 		private $errorDescription;
 		
-		function BugTracker ($errorCode, $errorDescription)
+		function __construct ($errorCode, $errorDescription)
 		{
 			$this->errorCode = $errorCode;
 			$this->errorDescription = $errorDescription;

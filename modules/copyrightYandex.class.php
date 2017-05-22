@@ -17,7 +17,7 @@
 		
 		const Text = "text";
 		
-		public function CopyrightYandex()
+		public function __construct()
 		{
 			$CopyrightParser = new CopyrightParser ();
 			$CopyrightParser->startParsing ();

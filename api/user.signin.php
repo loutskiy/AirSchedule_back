@@ -1,5 +1,5 @@
 <?php
-	require_once '/home/admin/web/airschedule.ru/public_html/autoloader.php';
+	require_once dirname(__DIR__) . '/autoloader.php';
 	header('Content-Type: application/json');
 	/**
 	* User SignIn API
@@ -27,12 +27,12 @@
 			print_r(json_encode($data));
 		} else
 		{
-			$data = $Error->getErrorByCode($user->error);
+			$data = $ASError->getErrorByCode($user->error);
 			print_r(json_encode($data));
 		}
 	} else
 	{
-		$data = $Error->getErrorByCode(6);
+		$data = $ASError->getErrorByCode(6);
 		print_r(json_encode($data));
 	}
 		

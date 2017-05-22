@@ -3,7 +3,7 @@
 	{
 		private $dir;
 		
-		public function AirlinesImageDaemon ( $dir )
+		public function __construct ( $dir )
 		{
 			$this->dir = $dir;
 		}

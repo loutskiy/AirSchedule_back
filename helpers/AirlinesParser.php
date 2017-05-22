@@ -1,6 +1,4 @@
-<?php
-	require_once '/home/admin/web/airschedule.ru/public_html/autoloader.php';
-	
+<?php	
 	/**
 	* AirlinesParser class
 	* @Developer: Mikhail Lutsky
@@ -11,7 +9,7 @@
 	{
 		public $url;
 		
-		function AirlinesParser($url)
+		function __construct($url)
 		{
 			$this->url = $url;
 		}

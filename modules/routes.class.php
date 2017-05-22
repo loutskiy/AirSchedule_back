@@ -18,7 +18,7 @@
 		
 		protected $routeId;
 		
-		function Routes($date = null, $airport_from = null, $airport_to = null)
+		function __construct($date = null, $airport_from = null, $airport_to = null)
 		{
 			$this->date = $date;
 			$this->airport_from = $airport_from;

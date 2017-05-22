@@ -9,7 +9,7 @@
 		
 		private $job;
 		
-		public function Cron ()
+		public function __construct ()
 		{
 			$this->datetime = time();
 			$this->db = &$db;

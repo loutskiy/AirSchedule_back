@@ -13,7 +13,7 @@ class CCCodesParser
 
     private $cities;
 
-    public function CCCodesParser()
+    public function __construct()
     {
         global $db;
         $this->db = &$db;

@@ -3,7 +3,7 @@
 	 * Cities search
 	 **/
 	
-	require_once '/home/admin/web/airschedule.ru/public_html/autoloader.php';
+	require_once dirname(__DIR__) . '/autoloader.php';
 	header('Content-Type: application/json');
 	
 	$token = $_GET["token"];

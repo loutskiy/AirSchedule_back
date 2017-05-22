@@ -75,7 +75,7 @@
 											</thead>
 											<tbody id="data-schedule" style="font-family: Helvetica">
 											<?php
-												$Schedule = new Schedule (date("Y-m-d"), "SVO", "departure");
+												$Schedule = new Schedule (date("Y-m-d"), "DME", "departure");
 												$response = $Schedule->getSchedule();
 												foreach ($response as $row) : ?>
 												<tr>
